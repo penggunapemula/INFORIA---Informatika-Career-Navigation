@@ -1,323 +1,314 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="description" content="Portofolio profesional I Gede Andhika Pratama — Web Developer & UI/UX Enthusiast. Lihat karya, keahlian, dan hubungi saya.">
-    <title>Andhika Pratama | Web Developer Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INFORIA — Platform karier #1 untuk mahasiswa informatika & fresh graduate. Temukan lowongan IT, komunitas, dan event berkualitas.">
+    <meta name="theme-color" content="#2563eb">
+    <title>INFORIA — Informatika Career Navigation</title>
 
-    <!-- Font Awesome 6 -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-
-    <!-- Google Fonts: Poppins -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Sora:wght@400..800&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+                            400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8',
+                            800: '#1e40af', 900: '#1e3a8a', 950: '#172554',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float-delayed 7s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease forwards',
+                        'fade-in': 'fadeIn 0.4s ease forwards',
+                        'pulse-soft': 'pulseSoft 2s infinite',
+                        'skeleton': 'skeleton 1.5s ease-in-out infinite',
+                        'slide-down': 'slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'scale-in': 'scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        'float-delayed': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(15px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
+                        },
+                        skeleton: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-12px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.92)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans bg-white text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- PRELOADER -->
-    <div id="preloader" aria-hidden="true">
-        <div class="loader-ring"></div>
-        <span class="loader-label">Memuat...</span>
-    </div>
+    <a href="#home" class="skip-link">Lewati ke konten utama</a>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigasi utama">
-        <a href="#hero" class="nav-logo" aria-label="Logo Andhika Pratama">&lt;AP /&gt;</a>
-        <ul class="nav-links" id="navLinks" role="menubar">
-            <li role="none"><a href="#hero" role="menuitem" class="active">Beranda</a></li>
-            <li role="none"><a href="#about" role="menuitem">Tentang</a></li>
-            <li role="none"><a href="#skills" role="menuitem">Keahlian</a></li>
-            <li role="none"><a href="#projects" role="menuitem">Proyek</a></li>
-            <li role="none"><a href="#contact" role="menuitem">Kontak</a></li>
-        </ul>
-        <div class="nav-actions">
-            <button id="themeToggle" aria-label="Toggle dark/light mode" title="Ganti tema">
-                <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 lg:px-12" role="navigation" aria-label="Navigasi utama">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2.5 group" aria-label="INFORIA Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-brand-600 to-brand-800 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:shadow-brand-500/40 group-hover:scale-105 transition-all duration-300">
+                    <i class="fa-solid fa-code text-white text-lg"></i>
+                </div>
+                <span class="font-display font-bold text-xl text-gray-900">INFORIA</span>
+            </a>
+
+            <ul class="hidden lg:flex items-center gap-1 text-sm font-medium" role="menubar">
+                <li role="none"><a href="#home" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Home</a></li>
+                <li role="none"><a href="#jobs" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Jobs</a></li>
+                <li role="none"><a href="#community" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Community</a></li>
+                <li role="none"><a href="#events" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Events</a></li>
+                <li role="none"><a href="#testimonials" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Testimoni</a></li>
+                <li role="none"><a href="#faq" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">FAQ</a></li>
+                <li role="none"><a href="#dashboard" class="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition-all" role="menuitem">Dashboard</a></li>
+            </ul>
+
+            <div class="hidden lg:flex items-center gap-3">
+                <button id="open-login-modal" class="px-5 py-2.5 text-sm font-semibold text-gray-700 hover:text-brand-600 rounded-lg transition-all hover:bg-gray-100" aria-label="Buka form login">Login</button>
+                <button id="open-register-modal" class="px-5 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 active:scale-95 transition-all duration-300" aria-label="Buka form registrasi">Register</button>
+            </div>
+
+            <button id="menu-toggle" class="lg:hidden text-gray-700 hover:text-brand-600 text-2xl p-2 transition-all rounded-xl hover:bg-gray-100" aria-label="Buka menu navigasi" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
             </button>
-            <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden mobile-menu-closed mt-4 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/50 p-6 flex flex-col gap-1" aria-hidden="true">
+            <a href="#home" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Home</a>
+            <a href="#jobs" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Jobs</a>
+            <a href="#community" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Community</a>
+            <a href="#events" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Events</a>
+            <a href="#testimonials" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Testimoni</a>
+            <a href="#faq" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">FAQ</a>
+            <a href="#dashboard" class="mobile-link block py-3 px-4 rounded-xl text-gray-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">Dashboard</a>
+            <div class="flex gap-3 mt-2 pt-4 border-t border-gray-100">
+                <button id="mobile-login-btn" class="flex-1 py-3 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all">Login</button>
+                <button id="mobile-register-btn" class="flex-1 py-3 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition-all">Register</button>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">🚀 Tersedia untuk freelance</span>
-            <h1>
-                Halo, saya<br>
-                <span class="gradient-text">I Gede Andhika Pratama</span>
-            </h1>
-            <p class="hero-subtitle">
-                Saya seorang <strong id="typed-text"></strong> yang bersemangat
-                membangun pengalaman web yang cepat, indah, dan mudah diakses.
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-arrow-down" aria-hidden="true"></i> Lihat Karya
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> Hubungi Saya
-                </a>
+    <!-- ==================== AUTH MODAL ==================== -->
+    <div id="auth-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="bg-white/90 backdrop-blur-2xl w-full max-w-md p-8 rounded-3xl shadow-2xl border border-white/50 relative animate-scale-in">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl transition-all w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100" aria-label="Tutup modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 id="auth-modal-title" class="sr-only">Form Autentikasi</h2>
+            <div class="flex mb-6 bg-gray-100 rounded-xl p-1">
+                <button id="tab-login" class="flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all bg-white shadow text-gray-900" aria-selected="true">Login</button>
+                <button id="tab-register" class="flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all text-gray-500 hover:text-gray-700" aria-selected="false">Register</button>
             </div>
-        </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Tentang</span>
-                <h2 class="section-title">Mengenal <span class="gradient-text">Saya</span></h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="about-grid reveal">
-                <div class="about-image-wrapper">
-                    <img src="https://placehold.co/600x750/1e293b/38bdf8?text=Andhika+Pratama"
-                    alt="Foto profil I Gede Andhika Pratama"
-                    loading="lazy"
-                    width="600"
-                    height="750">
+            <form id="login-form" class="space-y-4" novalidate>
+                <div><label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" id="login-email" placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required autocomplete="email"></div>
+                <div class="relative"><label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" id="login-password" placeholder="Masukkan password" class="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required autocomplete="current-password"><button type="button" class="toggle-pass absolute right-3 top-[38px] text-gray-400 hover:text-gray-600 transition-all p-1" data-target="login-password" aria-label="Tampilkan password"><i class="fa-regular fa-eye"></i></button></div>
+                <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg active:scale-95 transition-all duration-300">Masuk</button>
+            </form>
+
+            <form id="register-form" class="space-y-4 hidden" novalidate>
+                <div><label for="reg-name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" id="reg-name" placeholder="Nama kamu" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required autocomplete="name"></div>
+                <div><label for="reg-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" id="reg-email" placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required autocomplete="email"></div>
+                <div class="relative"><label for="reg-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" id="reg-password" placeholder="Min. 6 karakter" class="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required minlength="6" autocomplete="new-password"><button type="button" class="toggle-pass absolute right-3 top-[38px] text-gray-400 hover:text-gray-600 transition-all p-1" data-target="reg-password" aria-label="Tampilkan password"><i class="fa-regular fa-eye"></i></button></div>
+                <div class="relative"><label for="reg-confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Konfirmasi Password</label><input type="password" id="reg-confirm-password" placeholder="Ulangi password" class="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none transition-all bg-white/60 backdrop-blur-sm" required autocomplete="new-password"><button type="button" class="toggle-pass absolute right-3 top-[38px] text-gray-400 hover:text-gray-600 transition-all p-1" data-target="reg-confirm-password" aria-label="Tampilkan password"><i class="fa-regular fa-eye"></i></button></div>
+                <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg active:scale-95 transition-all duration-300">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== EVENT MODAL ==================== -->
+    <div id="event-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="event-modal-title">
+        <div class="bg-white/90 backdrop-blur-2xl w-full max-w-md p-8 rounded-3xl shadow-2xl border border-white/50 relative animate-scale-in">
+            <button id="close-event-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl transition-all w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100" aria-label="Tutup modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 id="event-modal-title" class="font-display text-xl font-bold mb-2">Daftar Event</h2>
+            <p id="event-modal-desc" class="text-gray-500 text-sm mb-6"></p>
+            <form id="event-registration-form" class="space-y-4" novalidate>
+                <div><label for="event-name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" id="event-name" placeholder="Nama kamu" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none bg-white/60" required></div>
+                <div><label for="event-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" id="event-email" placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-500 outline-none bg-white/60" required></div>
+                <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md active:scale-95 transition-all">Daftar Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 px-4 lg:px-12 overflow-hidden bg-gradient-to-br from-brand-50 via-white to-blue-50">
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-gradient-to-br from-brand-400/20 to-cyan-400/20 rounded-full blur-3xl animate-float" aria-hidden="true"></div>
+        <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-float-delayed" aria-hidden="true"></div>
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #2563eb 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 fade-in">
+                <div class="inline-flex items-center gap-2 bg-brand-100/80 backdrop-blur-sm px-4 py-2 rounded-full text-brand-700 text-sm font-semibold">
+                    <span class="w-2 h-2 bg-brand-500 rounded-full animate-pulse-soft" aria-hidden="true"></span> #1 Platform Karier Informatika
                 </div>
-                <div class="about-text">
-                    <h3>Web Developer yang berfokus pada <span class="gradient-text">kualitas &amp; performa</span></h3>
-                    <p>
-                        Sejak 2020, saya telah membantu klien dan tim menciptakan produk digital
-                        yang tidak hanya terlihat baik, tetapi juga cepat, aksesibel, dan mudah
-                        di-maintain. Saya percaya bahwa kode yang bersih adalah fondasi dari
-                        pengalaman pengguna yang luar biasa.
-                    </p>
-                    <p>
-                        Di luar coding, saya aktif menulis artikel teknis, berkontribusi di
-                        komunitas open-source, dan selalu mengeksplorasi teknologi web terbaru.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Proyek Selesai</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Tahun Pengalaman</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Klien Puas</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Mulai Kolaborasi
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight text-gray-900">
+                    Navigate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-cyan-500">Informatics</span> Career
+                </h1>
+                <p class="text-lg lg:text-xl text-gray-500 max-w-xl">Temukan jalur karier impianmu. Dari lowongan eksklusif, komunitas suportif, hingga event berkualitas — dalam satu platform.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#jobs" class="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-xl shadow-brand-500/25 hover:shadow-2xl hover:shadow-brand-500/30 active:scale-95 transition-all duration-300 flex items-center gap-2 btn-hover-lift">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Jelajahi Lowongan
                     </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Keahlian</span>
-                <h2 class="section-title">Teknologi yang Saya <span class="gradient-text">Kuasai</span></h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="skills-grid stagger-children reveal">
-                <!-- Skill cards seperti sebelumnya (tidak berubah) -->
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fab fa-html5" aria-hidden="true"></i></span>
-                    <h3>HTML5</h3>
-                    <div class="skill-level-dots" aria-label="Level: 5 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span>
-                    </div>
-                    <p class="skill-desc">Semantik, aksesibel, SEO-friendly</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fab fa-css3-alt" aria-hidden="true"></i></span>
-                    <h3>CSS3 / Tailwind</h3>
-                    <div class="skill-level-dots" aria-label="Level: 5 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span>
-                    </div>
-                    <p class="skill-desc">Responsive, animasi, design systems</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fab fa-js" aria-hidden="true"></i></span>
-                    <h3>JavaScript (ES6+)</h3>
-                    <div class="skill-level-dots" aria-label="Level: 4 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span>
-                    </div>
-                    <p class="skill-desc">DOM, async/await, API integration</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fab fa-react" aria-hidden="true"></i></span>
-                    <h3>React</h3>
-                    <div class="skill-level-dots" aria-label="Level: 4 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span>
-                    </div>
-                    <p class="skill-desc">Hooks, Context API, Next.js dasar</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fab fa-git-alt" aria-hidden="true"></i></span>
-                    <h3>Git & GitHub</h3>
-                    <div class="skill-level-dots" aria-label="Level: 4 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span>
-                    </div>
-                    <p class="skill-desc">Version control, CI/CD dasar</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon"><i class="fas fa-database" aria-hidden="true"></i></span>
-                    <h3>Node.js & Firebase</h3>
-                    <div class="skill-level-dots" aria-label="Level: 3 dari 5">
-                        <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span>
-                    </div>
-                    <p class="skill-desc">REST API, Firestore, Auth</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Portofolio</span>
-                <h2 class="section-title">Proyek <span class="gradient-text">Terbaru</span></h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="project-filters reveal" id="filterContainer">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="webapp">Web App</button>
-                <button class="filter-btn" data-filter="uiux">UI/UX</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-            </div>
-            <div class="projects-grid stagger-children reveal" id="projectsGrid">
-                <!-- Project cards sama seperti versi sebelumnya -->
-                <div class="project-card" data-category="webapp">
-                    <div class="project-img-wrap">
-                        <img src="https://placehold.co/600x400/1e293b/38bdf8?text=E-Commerce+Dashboard" alt="Dashboard E-Commerce" loading="lazy" width="600" height="400">
-                    </div>
-                    <div class="project-info">
-                        <h3>E-Commerce Dashboard</h3>
-                        <p>Dashboard admin responsif dengan grafik interaktif dan real-time data monitoring.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span><span class="tag">Chart.js</span><span class="tag">Tailwind</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="Lihat demo E-Commerce Dashboard" title="Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" aria-label="Lihat kode E-Commerce Dashboard" title="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Sisa project cards identik, diulang agar hemat tempat -->
-                <div class="project-card" data-category="webapp">
-                    <div class="project-img-wrap"><img src="https://placehold.co/600x400/1e293b/818cf8?text=Weather+App" alt="Weather App" loading="lazy" width="600" height="400"></div>
-                    <div class="project-info">
-                        <h3>Weather App</h3>
-                        <p>Aplikasi cuaca real-time menggunakan OpenWeather API dengan geolokasi.</p>
-                        <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">API</span><span class="tag">CSS</span></div>
-                        <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="uiux">
-                    <div class="project-img-wrap"><img src="https://placehold.co/600x400/1e293b/38bdf8?text=Design+System" alt="Design System" loading="lazy" width="600" height="400"></div>
-                    <div class="project-info">
-                        <h3>Design System</h3>
-                        <p>Komponen UI yang dapat digunakan kembali dengan dokumentasi lengkap dan aksesibel.</p>
-                        <div class="project-tags"><span class="tag">Figma</span><span class="tag">Storybook</span><span class="tag">CSS</span></div>
-                        <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="mobile">
-                    <div class="project-img-wrap"><img src="https://placehold.co/600x400/1e293b/818cf8?text=Mobile+POS" alt="Mobile POS App" loading="lazy" width="600" height="400"></div>
-                    <div class="project-info">
-                        <h3>Mobile POS App</h3>
-                        <p>Aplikasi point-of-sale mobile dengan sinkronisasi data offline-first.</p>
-                        <div class="project-tags"><span class="tag">React Native</span><span class="tag">Firebase</span></div>
-                        <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="webapp">
-                    <div class="project-img-wrap"><img src="https://placehold.co/600x400/1e293b/38bdf8?text=Blog+Platform" alt="Blog Platform" loading="lazy" width="600" height="400"></div>
-                    <div class="project-info">
-                        <h3>Blog Platform</h3>
-                        <p>Platform blog headless dengan markdown editor dan performa Lighthouse 98.</p>
-                        <div class="project-tags"><span class="tag">Next.js</span><span class="tag">MDX</span><span class="tag">Vercel</span></div>
-                        <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="uiux">
-                    <div class="project-img-wrap"><img src="https://placehold.co/600x400/1e293b/818cf8?text=Redesign+Landing" alt="Landing Page Redesign" loading="lazy" width="600" height="400"></div>
-                    <div class="project-info">
-                        <h3>Landing Page Redesign</h3>
-                        <p>Redesign total landing page SaaS dengan peningkatan konversi 40%.</p>
-                        <div class="project-tags"><span class="tag">UI/UX</span><span class="tag">A/B Testing</span><span class="tag">Figma</span></div>
-                        <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Kontak</span>
-                <h2 class="section-title">Mari <span class="gradient-text">Berbicara</span></h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="contact-grid reveal">
-                <form class="contact-form" id="contactForm" novalidate>
-                    <input type="text" name="name" placeholder="Nama Lengkap" required autocomplete="name" aria-label="Nama lengkap">
-                    <input type="email" name="email" placeholder="Alamat Email" required autocomplete="email" aria-label="Alamat email">
-                    <textarea name="message" rows="5" placeholder="Tulis pesan Anda di sini..." required aria-label="Pesan Anda"></textarea>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Kirim Pesan
+                    <button id="demo-btn" class="px-8 py-4 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 flex items-center gap-2 btn-hover-lift" aria-label="Lihat demo platform">
+                        <i class="fa-solid fa-play text-brand-600" aria-hidden="true"></i> Lihat Demo
                     </button>
-                </form>
-                <div class="contact-info">
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>igedeandhikapratama06@gmail.com</span>
+                </div>
+                <div class="flex gap-8 pt-4">
+                    <div><p class="text-3xl font-bold text-gray-900 counter" data-target="500">0</p><p class="text-sm text-gray-500">Lowongan Aktif</p></div>
+                    <div><p class="text-3xl font-bold text-gray-900 counter" data-target="50000" data-suffix="K+">0</p><p class="text-sm text-gray-500">Talenta</p></div>
+                    <div><p class="text-3xl font-bold text-gray-900 counter" data-target="120">0</p><p class="text-sm text-gray-500">Partner</p></div>
+                </div>
+            </div>
+            <div class="relative fade-in flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-lg">
+                    <div class="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/50 transform rotate-1 hover:rotate-0 transition-transform duration-500 card-interactive">
+                        <div class="flex items-center gap-3 mb-6"><div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-700 rounded-xl flex items-center justify-center shadow-lg"><i class="fa-solid fa-chart-line text-white"></i></div><div><p class="font-semibold text-gray-900">Career Match</p><p class="text-sm text-gray-500">92% cocok</p></div></div>
+                        <div class="space-y-3"><div class="h-3 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-brand-500 to-cyan-400 rounded-full skill-bar" data-width="85%" style="width:0%"></div></div><div class="h-3 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-brand-500 to-cyan-400 rounded-full skill-bar" data-width="72%" style="width:0%"></div></div><div class="h-3 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-brand-500 to-cyan-400 rounded-full skill-bar" data-width="94%" style="width:0%"></div></div></div>
+                        <div class="mt-6 flex gap-2"><span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Remote</span><span class="px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full">Full-time</span></div>
                     </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone" aria-hidden="true"></i>
-                        <span>+62 857-9276-4316</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        <span>Indonesia</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center animate-float"><i class="fa-solid fa-rocket text-brand-600 text-2xl"></i></div>
+                    <div class="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl shadow-2xl flex items-center justify-center animate-float-delayed"><i class="fa-solid fa-briefcase text-white text-2xl"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; <span id="currentYear"></span> I Gede Andhika Pratama. Dibuat dengan <span class="heart" aria-label="cinta">❤️</span> dan kopi hitam.</p>
+    <!-- ==================== FEATURES ==================== -->
+    <section class="py-20 px-4 lg:px-12 bg-white" id="features">
+        <div class="max-w-7xl mx-auto text-center mb-16 fade-in">
+            <span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Fitur Unggulan</span>
+            <h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Semua yang Kamu Butuhkan</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-8 rounded-2xl text-center group card-interactive fade-in shadow-sm"><div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-brand-500/40 group-hover:scale-110 transition-all duration-300 mb-5"><i class="fa-solid fa-magnifying-glass text-white text-2xl"></i></div><h3 class="font-display font-semibold text-lg mb-2">Job Finder</h3><p class="text-gray-500 text-sm">Lowongan IT terkurasi dari 120+ partner.</p></div>
+            <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-8 rounded-2xl text-center group card-interactive fade-in shadow-sm"><div class="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/40 group-hover:scale-110 transition-all duration-300 mb-5"><i class="fa-solid fa-user-astronaut text-white text-2xl"></i></div><h3 class="font-display font-semibold text-lg mb-2">Career Profile</h3><p class="text-gray-500 text-sm">Profil profesional & rekomendasi karier.</p></div>
+            <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-8 rounded-2xl text-center group card-interactive fade-in shadow-sm"><div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/40 group-hover:scale-110 transition-all duration-300 mb-5"><i class="fa-solid fa-comments text-white text-2xl"></i></div><h3 class="font-display font-semibold text-lg mb-2">Community</h3><p class="text-gray-500 text-sm">Diskusi & networking 50K+ talenta.</p></div>
+            <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-8 rounded-2xl text-center group card-interactive fade-in shadow-sm"><div class="w-16 h-16 mx-auto bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/40 group-hover:scale-110 transition-all duration-300 mb-5"><i class="fa-solid fa-calendar-star text-white text-2xl"></i></div><h3 class="font-display font-semibold text-lg mb-2">Events</h3><p class="text-gray-500 text-sm">Webinar, workshop, & hackathon eksklusif.</p></div>
+        </div>
+    </section>
+
+    <!-- ==================== JOB FINDER ==================== -->
+    <section id="jobs" class="py-20 px-4 lg:px-12 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 fade-in"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Lowongan Terbaru</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Temukan Pekerjaan Impianmu</h2></div>
+            <div class="flex flex-col sm:flex-row gap-4 mb-10 fade-in">
+                <div class="flex-1 relative"><i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i><input type="text" id="job-search" placeholder="Cari posisi, perusahaan..." class="w-full pl-12 pr-4 py-4 rounded-2xl border bg-white shadow-sm focus:ring-2 focus:ring-brand-500 outline-none transition-all" aria-label="Cari lowongan"></div>
+                <select id="job-filter" class="px-5 py-4 rounded-2xl border bg-white shadow-sm outline-none focus:ring-2 focus:ring-brand-500 transition-all" aria-label="Filter tipe pekerjaan"><option value="all">Semua Tipe</option><option value="Remote">Remote</option><option value="Full-time">Full-time</option><option value="Part-time">Part-time</option><option value="Contract">Contract</option></select>
+                <select id="job-location-filter" class="px-5 py-4 rounded-2xl border bg-white shadow-sm outline-none focus:ring-2 focus:ring-brand-500 transition-all" aria-label="Filter lokasi"><option value="all">Semua Lokasi</option><option value="Jakarta">Jakarta</option><option value="Remote">Remote</option><option value="Bandung">Bandung</option><option value="Tangerang">Tangerang</option></select>
+                <button id="job-search-btn" class="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all" aria-label="Cari lowongan"><i class="fa-solid fa-search mr-2"></i>Cari</button>
+            </div>
+            <div id="job-skeleton" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="skeleton-card h-56 rounded-2xl"></div><div class="skeleton-card h-56 rounded-2xl"></div><div class="skeleton-card h-56 rounded-2xl"></div><div class="skeleton-card h-56 rounded-2xl hidden sm:block"></div><div class="skeleton-card h-56 rounded-2xl hidden lg:block"></div><div class="skeleton-card h-56 rounded-2xl hidden lg:block"></div></div>
+            <div id="job-cards-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
+            <div id="job-empty-state" class="text-center py-16 hidden"><i class="fa-solid fa-circle-exclamation text-5xl text-gray-300 mb-4"></i><p class="text-gray-500 text-lg">Tidak ada lowongan yang cocok.</p><p class="text-gray-400 text-sm mt-1">Coba ubah filter atau kata kunci pencarian.</p></div>
+            <div id="pagination-container" class="flex justify-center items-center gap-3 mt-10"></div>
+        </div>
+    </section>
+
+    <!-- ==================== COMMUNITY ==================== -->
+    <section id="community" class="py-20 px-4 lg:px-12 bg-white">
+        <div class="max-w-5xl mx-auto fade-in"><div class="text-center mb-12"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Komunitas</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Diskusi & Berbagi Insight</h2></div>
+        <div id="community-skeleton" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="skeleton-card h-44 rounded-2xl"></div><div class="skeleton-card h-44 rounded-2xl"></div><div class="skeleton-card h-44 rounded-2xl hidden lg:block"></div></div>
+        <div id="community-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div></div>
+    </section>
+
+    <!-- ==================== EVENTS ==================== -->
+    <section id="events" class="py-20 px-4 lg:px-12 bg-gray-50/50">
+        <div class="max-w-5xl mx-auto fade-in"><div class="text-center mb-12"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Events</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Event Mendatang</h2></div>
+        <div id="events-skeleton" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="skeleton-card h-52 rounded-2xl"></div><div class="skeleton-card h-52 rounded-2xl"></div><div class="skeleton-card h-52 rounded-2xl hidden lg:block"></div></div>
+        <div id="events-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div></div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="py-20 px-4 lg:px-12 bg-white">
+        <div class="max-w-6xl mx-auto"><div class="text-center mb-12 fade-in"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Testimoni</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Apa Kata Mereka?</h2></div>
+        <div id="testimonials-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div></div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section id="faq" class="py-20 px-4 lg:px-12 bg-gray-50/50">
+        <div class="max-w-3xl mx-auto"><div class="text-center mb-12 fade-in"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">FAQ</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Pertanyaan Umum</h2></div>
+        <div id="faq-container" class="space-y-4"></div></div>
+    </section>
+
+    <!-- ==================== DASHBOARD ==================== -->
+    <section id="dashboard" class="py-20 px-4 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto"><div class="text-center mb-12 fade-in"><span class="text-brand-600 font-semibold text-sm tracking-widest uppercase">Dashboard</span><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Overview Aktivitasmu</h2></div>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div class="lg:w-64 shrink-0"><div class="bg-white/70 backdrop-blur-xl border border-white/50 p-6 rounded-2xl space-y-4 sticky top-28 shadow-sm"><div class="flex items-center gap-3 pb-4 border-b"><div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white"><i class="fa-solid fa-grid-2"></i></div><span class="font-display font-semibold">Dashboard</span></div><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-brand-50 text-brand-700 font-medium text-sm"><i class="fa-solid fa-chart-pie"></i> Overview</a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 hover:bg-gray-100 font-medium text-sm transition-all"><i class="fa-solid fa-briefcase"></i> Lamaran</a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 hover:bg-gray-100 font-medium text-sm transition-all"><i class="fa-solid fa-bookmark"></i> Tersimpan</a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 hover:bg-gray-100 font-medium text-sm transition-all"><i class="fa-solid fa-gear"></i> Pengaturan</a></div></div>
+            <div class="flex-1 space-y-6">
+                <div class="grid sm:grid-cols-3 gap-5 fade-in">
+                    <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-6 rounded-2xl text-center card-interactive shadow-sm"><i class="fa-solid fa-paper-plane text-brand-600 text-3xl mb-3"></i><p class="text-4xl font-bold" id="total-apps">12</p><p class="text-sm text-gray-500">Total Lamaran</p></div>
+                    <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-6 rounded-2xl text-center card-interactive shadow-sm"><i class="fa-solid fa-check-circle text-green-600 text-3xl mb-3"></i><p class="text-4xl font-bold" id="total-interviews">4</p><p class="text-sm text-gray-500">Interview</p></div>
+                    <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-6 rounded-2xl text-center card-interactive shadow-sm"><i class="fa-solid fa-chart-line text-purple-600 text-3xl mb-3"></i><p class="text-4xl font-bold" id="progress-skill">78%</p><p class="text-sm text-gray-500">Progress Skill</p></div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-xl border border-white/50 p-6 rounded-2xl fade-in shadow-sm"><h3 class="font-display font-semibold text-lg mb-5">Aktivitas Terbaru</h3><div id="recent-activities" class="space-y-4"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-gray-900 text-white py-16 px-4 lg:px-12" role="contentinfo">
+        <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div><div class="flex items-center gap-2.5 mb-4"><div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-code"></i></div><span class="font-display font-bold text-xl">INFORIA</span></div><p class="text-gray-400 text-sm">Platform karier #1 untuk mahasiswa informatika & fresh graduate.</p><div class="flex gap-3 mt-5"><a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 rounded-xl flex items-center justify-center transition-all" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 rounded-xl flex items-center justify-center transition-all" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 rounded-xl flex items-center justify-center transition-all" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 rounded-xl flex items-center justify-center transition-all" aria-label="Discord"><i class="fa-brands fa-discord"></i></a></div></div>
+            <div><h4 class="font-display font-semibold mb-4">Platform</h4><ul class="space-y-2 text-gray-400 text-sm"><li><a href="#jobs" class="hover:text-white transition-all">Lowongan</a></li><li><a href="#community" class="hover:text-white transition-all">Komunitas</a></li><li><a href="#events" class="hover:text-white transition-all">Events</a></li></ul></div>
+            <div><h4 class="font-display font-semibold mb-4">Perusahaan</h4><ul class="space-y-2 text-gray-400 text-sm"><li><a href="#" class="hover:text-white transition-all">Tentang Kami</a></li><li><a href="#" class="hover:text-white transition-all">Partner</a></li><li><a href="#" class="hover:text-white transition-all">Blog</a></li></ul></div>
+            <div><h4 class="font-display font-semibold mb-4">Kontak</h4><ul class="space-y-2 text-gray-400 text-sm"><li><i class="fa-solid fa-envelope mr-2 text-brand-400"></i>hello@inforia.id</li><li><i class="fa-solid fa-phone mr-2 text-brand-400"></i>+62 812-3456-7890</li><li><i class="fa-solid fa-location-dot mr-2 text-brand-400"></i>Jakarta, Indonesia</li></ul></div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">&copy; 2026 INFORIA. All rights reserved.</div>
     </footer>
 
-    <!-- BACK TO TOP -->
-    <button id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
-        <i class="fas fa-chevron-up" aria-hidden="true"></i>
-    </button>
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-600 hover:bg-brand-700 text-white rounded-2xl shadow-xl shadow-brand-500/25 hover:shadow-2xl transition-all duration-300 flex items-center justify-center opacity-0 invisible pointer-events-none" aria-label="Kembali ke atas"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- Custom JS -->
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-[200] flex flex-col gap-3 pointer-events-none" aria-live="polite"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
